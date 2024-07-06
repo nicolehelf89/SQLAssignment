@@ -248,3 +248,37 @@ mov.Movies;
 mov.Movie_Actor;
 mov.Movie_Rating;
 */
+
+/* Queries
+7 sets of queries
+Nicole - Q13 - System Info Queries
+*/
+
+--Retrieve the list of all Databases.
+
+--Switch to master Database
+USE [master]
+GO
+SELECT name
+FROM sys.databases
+WHERE state_desc = 'ONLINE';
+GO
+
+--Display the byte size of all tables in databases.
+USE [Movies]
+GO
+SELECT *
+FROM INFORMATION_SCHEMA.COLUMNS
+GO
+
+--Get First Date of Current Month.
+SELECT DATEFROMPARTS(YEAR(GETDATE()), MONTH(GETDATE()), 1) AS 'First Date of Current Month';
+GO
+
+SELECT DATETRUNC(GETDATE(), AS 'First Date of Current Month';
+GO
+
+--Get Last date of Current month.
+SELECT EOMONTH(GETDATE()) AS 'Last Date of Current Month';
+
+SELECT NEXTMONTH(GETDATE()) 
